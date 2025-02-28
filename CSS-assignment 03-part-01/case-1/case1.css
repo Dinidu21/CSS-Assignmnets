@@ -1,0 +1,76 @@
+body{
+    overflow: hidden;
+}
+#main-div{
+    background-color: white;
+    width: 100vw;
+    height: 100vh;
+    border: 3px solid black;
+    position: absolute;
+}
+
+#second-div{
+    width: 50%;
+    height: 50%;
+    background-color: red;
+    top: 0;
+    left: 0;
+    position: absolute;
+
+}
+
+#third-div{
+    width: 50%;
+    height: 50%;
+    background-color: green;
+    top: 0;
+    right: 0;
+    position: absolute;
+
+}
+
+#fourth-div{
+    width: 50%;
+    height: 50%;
+    background-color: orange;
+    left: 0;
+    bottom: 0;
+    position: absolute;
+
+}
+
+#fifth-div{
+    width: 50%;
+    height: 50%;
+    background-color: deeppink;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+}
+
+#sixth-div{
+    width: 200px;
+    height: 200px;
+    background-color: white;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    position: absolute;
+
+}
+
+#seventh-div{
+    width: 80px;
+    height: 80px;
+    background-color: red;
+    border-radius: 100px;
+    padding: 20px;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    position: absolute;
+}
