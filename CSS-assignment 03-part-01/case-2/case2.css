@@ -1,0 +1,104 @@
+body{
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+}
+header{
+    position: relative;
+    width: 100vw;
+    height: 80px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+header>img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 10px;
+    margin: auto;
+}
+
+header>nav {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: fit-content;
+}
+
+header>nav>ul {
+    padding: 15px;
+    margin: 0;
+
+}
+
+header>nav>ul>li {
+    display: inline-block;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+footer {
+    background-color: darkgray;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+}
+
+main {
+    position: relative;
+}
+
+main>aside {
+    background-color: purple;
+    color: white;
+    padding: 10px;
+    width: 150px;
+    position: absolute;
+    box-sizing: border-box;
+
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+main>aside>ul {
+    margin: 0;
+    list-style: none;
+    padding: 0;
+}
+
+main>aside>ul>li {
+    margin: 12px 0 ;
+    cursor: pointer;
+}
+
+main > section {
+    background-color: lightyellow;
+    width: calc(100vw - 150px);
+    margin-left: 150px;
+}
+
+main > section > p {
+    margin: 0;
+}
+
+section > div {
+    display: flex;
+    justify-content: space-between;
+    height: 250px;
+}
+
+section > div > div {
+    flex: 1;
+    height: 100%;
+    position: relative;
+    border: 2px solid black;
+    background: url("https://tenor.com/view/seriously-seriously-cat-cat-really-cat-really-look-cat-look-gif-5524432498705390840.gif") no-repeat center;
+    background-size: cover;
+}
