@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realistic Car Animation on Road</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+
+        .scene {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .sky {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('assets/Car_Animations/sky.jpg') no-repeat center center;
+            background-size: cover;
+            z-index: 1;
+        }
+
+        .city {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('assets/Car_Animations/city.png') no-repeat center center;
+            background-size: cover;
+            z-index: 2;
+            animation: parallaxCity 7s linear infinite;
+        }
+
+        .road {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: url('assets/Car_Animations/road.jpg') repeat-x;
+            background-size: auto 100%;
+            z-index: 3;
+            animation: moveRoad 5s linear infinite;
+        }
+
+        .car {
+            position: absolute;
+            bottom: 40px;
+            left: -300px;
+            width: 300px;
+            height: auto;
+            z-index: 4;
+            animation: moveCar 30s linear infinite, bounceCar 0.5s ease-in-out infinite;
+            filter: drop-shadow(5px 10px 10px rgba(0, 0, 0, 0.5));
+        }
+
+        .car img {
+            width: 100%;
+            display: block;
+        }
+
+        @keyframes moveRoad {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: -2000px 0;
+            }
+        }
+
+        @keyframes parallaxCity {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: -500px 0;
+            }
+        }
+
+        @keyframes moveCar {
+            0% {
+                left: -300px;
+            }
+            66.67% {
+                left: calc(100% - 300px);
+            }
+            100% {
+                left: calc(100% - 300px);
+            }
+        }
+
+        @keyframes bounceCar {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .wheel {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: url('assets/Car_Animations/wheel.png') no-repeat center center;
+            background-size: contain;
+            z-index: 5;
+            animation: rotateWheel 0.5s linear infinite;
+        }
+
+        .wheel.front {
+            bottom: 10px;
+            left: 210px;
+        }
+
+        .wheel.rear {
+            bottom: 10px;
+            left: 30px;
+        }
+
+        @keyframes rotateWheel {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .car.paused .wheel {
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+<body>
+<div class="scene">
+    <div class="sky"></div>
+    <div class="city"></div>
+    <div class="road"></div>
+    <div class="car">
+        <img src="assets/Car_Animations/car.png" alt="Car">
+        <div class="wheel front"></div>
+        <div class="wheel rear"></div>
+    </div>
+</div>
+</body>
+</html>
