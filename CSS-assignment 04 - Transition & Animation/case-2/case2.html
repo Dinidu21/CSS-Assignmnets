@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Circular UI with Hover Animation</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(#649bfb, #0065ff);
+    }
+
+    .circle-container {
+      position: relative;
+      width: 200px;
+      height: 200px;
+    }
+
+    .circle {
+      width: 100%;
+      height: 100%;
+      background-color: #5b5b5b;
+      border: 10px solid white;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .circle span {
+      color: white;
+      font-family: Arial, sans-serif;
+      font-size: 24px;
+      font-weight: bold;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .circle::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      width: 100%;
+      height: 100%;
+      border: 10px solid transparent;
+      border-top-color: #ff0000;
+      border-radius: 50%;
+      transform: rotate(0deg);
+      transition: ease-in 0.3ms ;
+      z-index: 1;
+      cursor: pointer;
+    }
+
+    .circle:hover::before {
+      animation: rotateArc 1.7s  ease-in-out;
+    }
+
+    @keyframes rotateArc {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="circle-container">
+  <div class="circle">
+    <span>DINIDU</span>
+  </div>
+</div>
+</body>
+</html>
