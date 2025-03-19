@@ -1,43 +1,96 @@
-body{
-    font-family: "Open Sans", sans-serif;
-    font-optical-sizing: auto;
-    font-style: normal;
-    font-variation-settings: "wdth" 100;
-}
-header{
-    position: relative;
-    width: 100vw;
-    height: 80px;
-    padding: 20px;
+* {
     box-sizing: border-box;
-}
-header>img {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 10px;
-    margin: auto;
-}
-
-header>nav {
-    position: absolute;
-    right: 10px;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    height: fit-content;
-}
-
-header>nav>ul {
-    padding: 15px;
     margin: 0;
-
+    padding: 0;
 }
 
-header>nav>ul>li {
-    display: inline-block;
-    margin-left: 20px;
+body {
+    font-family: "Open Sans", sans-serif;
+    line-height: 1.6;
+}
+
+header {
+    position: relative;
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f8f9fa;
+}
+
+.logo {
+    max-width: 150px;
+    height: auto;
+}
+
+nav {
+    position: relative;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-menu li {
     cursor: pointer;
+    padding: 0.5rem;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    min-height: calc(100vh - 120px);
+}
+
+aside {
+    background-color: purple;
+    color: white;
+    padding: 1rem;
+    width: 200px;
+    flex-shrink: 0;
+}
+
+aside ul {
+    list-style: none;
+}
+
+aside ul li {
+    margin: 0.75rem 0;
+    cursor: pointer;
+}
+
+section {
+    background-color: lightyellow;
+    flex-grow: 1;
+    padding: 1rem;
+}
+
+.gallery {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    min-height: 150px;
+    flex-wrap: wrap;
+}
+
+.gallery div {
+    flex: 1;
+    border: 2px solid black;
+    background: url("https://tenor.com/view/seriously-seriously-cat-cat-really-cat-really-look-cat-look-gif-5524432498705390840.gif") no-repeat center;
+    background-size: cover;
+    height: 150px;
 }
 
 footer {
@@ -45,60 +98,82 @@ footer {
     text-align: center;
     color: white;
     font-weight: bold;
-    padding-top: 20px;
-    padding-bottom: 20px;
-
+    padding: 1rem;
 }
 
-main {
-    position: relative;
+
+@media (max-width: 425px) {
+    .logo {
+        max-width: 100px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: white;
+        width: 100%;
+        text-align: center;
+    }
+
+    nav:hover .nav-menu {
+        display: flex;
+    }
+
+    aside {
+        width: 100%;
+        position: static;
+    }
+
+    section {
+        width: 100%;
+    }
+
+    .gallery {
+        flex-direction: column;
+    }
+
+    .gallery div {
+        height: 120px;
+    }
 }
 
-main>aside {
-    background-color: purple;
-    color: white;
-    padding: 10px;
-    width: 150px;
-    position: absolute;
-    box-sizing: border-box;
+@media (min-width: 426px) and (max-width: 768px) {
+    .logo {
+        max-width: 130px;
+    }
 
-    top: 0;
-    bottom: 0;
-    margin: auto;
+    aside {
+        width: 120px;
+    }
+
+    section {
+        width: calc(100% - 120px);
+    }
 }
 
-main>aside>ul {
-    margin: 0;
-    list-style: none;
-    padding: 0;
+@media (min-width: 769px) and (max-width: 1024px) {
+    aside {
+        width: 150px;
+    }
+
+    section {
+        width: calc(100% - 150px);
+    }
 }
 
-main>aside>ul>li {
-    margin: 12px 0 ;
-    cursor: pointer;
-}
+@media (min-width: 1025px) {
+    aside {
+        width: 200px;
+    }
 
-main > section {
-    background-color: lightyellow;
-    width: calc(100vw - 150px);
-    margin-left: 150px;
-}
-
-main > section > p {
-    margin: 0;
-}
-
-section > div {
-    display: flex;
-    justify-content: space-between;
-    height: 250px;
-}
-
-section > div > div {
-    flex: 1;
-    height: 100%;
-    position: relative;
-    border: 2px solid black;
-    background: url("https://tenor.com/view/seriously-seriously-cat-cat-really-cat-really-look-cat-look-gif-5524432498705390840.gif") no-repeat center;
-    background-size: cover;
+    section {
+        width: calc(100% - 200px);
+    }
 }
