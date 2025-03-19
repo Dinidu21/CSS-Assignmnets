@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moving Box UI</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: white;
+        overflow: hidden;
+    }
+
+    .container {
+        width: 1400px;
+        height: 900px;
+        background-color: white;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .box {
+        width: 100px;
+        height: 50px;
+        background-color: red;
+        position: absolute;
+        top: 0;
+        left: 0;
+        animation: moveAndRotate 5s infinite ease-in-out;
+        border-radius: 10px;
+    }
+
+    @keyframes moveAndRotate {
+        0% {
+            transform: translate(0, 0) rotate(0deg);
+            background-color: red;
+        }
+        25% {
+            transform: translate(800px, 0) rotate(90deg);
+            background-color: blue;
+        }
+        50% {
+            transform: translate(800px, 650px) rotate(180deg);
+            background-color: green;
+        }
+        75% {
+            transform: translate(0, 650px) rotate(270deg);
+            background-color: purple;
+        }
+        100% {
+            transform: translate(0, 0) rotate(360deg);
+            background-color: red;
+        }
+    }
+</style>
+<body>
+<div class="container">
+    <div class="box"></div>
+</div>
+</body>
+</html>
