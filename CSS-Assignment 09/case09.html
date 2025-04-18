@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Knight Rider</title>
+    <style>
+        body {
+            background-color: black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: #ff3333;
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .light-container {
+            display: flex;
+            border: 2px solid #333;
+            padding: 5px;
+            background-color: black;
+        }
+        .light {
+            width: 40px;
+            height: 40px;
+            margin: 5px;
+            background-color: white;
+            transition: background-color 0.3s ease;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #ff3333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #cc0000;
+        }
+    </style>
+</head>
+<body>
+<h1>JavaScript Knight Rider</h1>
+<div class="light-container">
+    <div class="light"></div>
+    <div class="light"></div>
+    <div class="light"></div>
+    <div class="light"></div>
+    <div class="light"></div>
+    <div class="light"></div>
+    <div class="light"></div>
+</div>
+<button id="toggleButton">Start</button>
+<audio id="knightRiderAudio" loop>
+    <source src="knight_rider_theme.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        const lights = $('.light');
+        let currentIndex = 0;
+        let direction = 1; // 1 for right, -1 for left
+        let isRunning = false;
+        let animationInterval;
+        const audio = $('#knightRiderAudio')[0];
+
+        function setLightColors(index) {
+            lights.each(function(i) {
+                if (i === index) {
+                    $(this).css('background-color', '#ff0000'); // Bright red
+                } else if (i === index - 1 || i === index + 1) {
+                    $(this).css('background-color', '#ff6666'); // Light red
+                } else if (i === index - 2 || i === index + 2) {
+                    $(this).css('background-color', '#ff9999'); // Pinkish
+                } else {
+                    $(this).css('background-color', 'white');
+                }
+            });
+        }
+
+        function animateLights() {
+            setLightColors(currentIndex);
+            currentIndex += direction;
+
+            if (currentIndex >= lights.length - 1) {
+                direction = -1;
+            } else if (currentIndex <= 0) {
+                direction = 1;
+            }
+        }
+
+        function startAnimation() {
+            if (!isRunning) {
+                isRunning = true;
+                $('#toggleButton').text('Stop');
+                animationInterval = setInterval(animateLights, 100);
+                audio.play().catch(function(error) {
+                    console.log("Audio play failed:", error);
+                });
+            }
+        }
+
+        function stopAnimation() {
+            if (isRunning) {
+                isRunning = false;
+                $('#toggleButton').text('Start');
+                clearInterval(animationInterval);
+                lights.css('background-color', 'white');
+                audio.pause();
+                audio.currentTime = 0;
+            }
+        }
+
+        $('#toggleButton').click(function() {
+            if (isRunning) {
+                stopAnimation();
+            } else {
+                startAnimation();
+            }
+        });
+    });
+</script>
+</body>
+</html>
