@@ -1,7 +1,3 @@
-Let’s break down your JavaScript code step-by-step in a beginner-friendly way. I’ll explain each line, why it’s used, and what it does, using simple analogies or examples where needed. If a concept is complex, I’ll simplify it with an example to make it easier to understand. Since you’re a beginner, I’ll avoid technical jargon as much as possible and explain things like you’re learning JavaScript for the first time.
-
-Your JavaScript code is adding interactivity to your portfolio website, like animations, dark mode toggling, a scrolling carousel for certifications, and more. Let’s go through it section by section.
-
 ---
 
 ### **Main Event Listener: `DOMContentLoaded`**
@@ -853,4 +849,4 @@ button.addEventListener('click', () => {
 - Add console logs (e.g., `console.log('Clicked!')`) to see when events fire.
 - Ask specific questions about any part that’s unclear!
 
-Let me know if you want me to dive deeper into any section or explain a specific line further!
+---
