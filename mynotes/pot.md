@@ -1,3 +1,4 @@
+
 ---
 
 ### **Main Event Listener: `DOMContentLoaded`**
@@ -848,5 +849,3 @@ button.addEventListener('click', () => {
 - Experiment with one function at a time (e.g., try changing the `threshold` in `initAnimations`).
 - Add console logs (e.g., `console.log('Clicked!')`) to see when events fire.
 - Ask specific questions about any part that’s unclear!
-
----
